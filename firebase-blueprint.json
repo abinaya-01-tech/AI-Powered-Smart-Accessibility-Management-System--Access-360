@@ -1,0 +1,106 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile with role-based access control",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "email": { "type": "string" },
+        "name": { "type": "string" },
+        "role": { "type": "string", "enum": ["wheelchair_user", "inspector", "admin"] },
+        "createdAt": { "type": "string" },
+        "tokenId": { "type": "string" }
+      },
+      "required": ["userId", "email", "role", "createdAt"]
+    },
+    "WheelchairToken": {
+      "title": "WheelchairToken",
+      "description": "Cryptographically secure anonymous access token",
+      "type": "object",
+      "properties": {
+        "tokenId": { "type": "string" },
+        "userId": { "type": "string" },
+        "status": { "type": "string", "enum": ["ACTIVE", "EXPIRED", "REVOKED", "USED"] },
+        "createdAt": { "type": "string" },
+        "expiresAt": { "type": "string" }
+      },
+      "required": ["tokenId", "userId", "status", "createdAt"]
+    },
+    "AccessLog": {
+      "title": "AccessLog",
+      "description": "Access verification record logged when a wheelchair access token is authenticated",
+      "type": "object",
+      "properties": {
+        "tokenId": { "type": "string" },
+        "facilityId": { "type": "string" },
+        "location": { "type": "string" },
+        "accessType": { "type": "string" },
+        "status": { "type": "string" },
+        "timestamp": { "type": "string" },
+        "reportId": { "type": "string" }
+      },
+      "required": ["tokenId", "facilityId", "location", "accessType", "status", "timestamp"]
+    },
+    "AccessibilityReport": {
+      "title": "AccessibilityReport",
+      "description": "AI-verified accessibility infrastructure report",
+      "type": "object",
+      "properties": {
+        "locationId": { "type": "string" },
+        "locationName": { "type": "string" },
+        "score": { "type": "number" },
+        "category": { "type": "string" },
+        "detections": { "type": "array" },
+        "recommendations": { "type": "array" },
+        "issues": { "type": "array" },
+        "imageUrl": { "type": "string" },
+        "annotatedImageUrl": { "type": "string" },
+        "inspectorId": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "status": { "type": "string" }
+      },
+      "required": ["locationId", "score", "category", "detections", "createdAt"]
+    },
+    "Location": {
+      "title": "Location",
+      "description": "Public facility with accessibility rating and detected infrastructure",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "address": { "type": "string" },
+        "latitude": { "type": "number" },
+        "longitude": { "type": "number" },
+        "accessibilityScore": { "type": "number" },
+        "accessibilityCategory": { "type": "string" },
+        "features": { "type": "object" },
+        "wheelchairAccessStatus": { "type": "string" },
+        "lastVerificationDate": { "type": "string" }
+      },
+      "required": ["id", "name", "latitude", "longitude", "accessibilityScore", "accessibilityCategory"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "Stores user profiles and role assignments"
+    },
+    "/wheelchairTokens/{tokenId}": {
+      "schema": "WheelchairToken",
+      "description": "Secure wheelchair access tokens and statuses"
+    },
+    "/accessLogs/{logId}": {
+      "schema": "AccessLog",
+      "description": "Facility access verification events"
+    },
+    "/accessibilityReports/{reportId}": {
+      "schema": "AccessibilityReport",
+      "description": "YOLO verified accessibility assessment reports"
+    },
+    "/locations/{locationId}": {
+      "schema": "Location",
+      "description": "Directory of facilities with accessibility metadata"
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "AI-Powered Smart Accessibility Management System",
+  "description": "College-level AI + accessibility platform featuring YOLO computer vision infrastructure verification, cryptographically secure wheelchair access tokens, OpenStreetMap & Google Maps integration, and government oversight dashboards.",
+  "requestFramePermissions": ["camera", "geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
