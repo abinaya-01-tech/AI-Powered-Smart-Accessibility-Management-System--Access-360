@@ -15,7 +15,7 @@ const __dirname = path.dirname(__filename);
 
 async function startServer() {
   const app = express();
-  const PORT = 3000;
+  const PORT = Number(process.env.PORT) || 3000;
 
   // Middleware
   app.use(cors());
@@ -59,9 +59,9 @@ async function startServer() {
     });
   }
 
-  app.listen(PORT, '0.0.0.0', () => {
-    console.log(`[Accessibility System] Server running on http://0.0.0.0:${PORT}`);
-  });
+ app.listen(PORT, '0.0.0.0', () => {
+  console.log(`[Accessibility System] Server running on http://0.0.0.0:${PORT}`);
+});
 }
 
 startServer();
