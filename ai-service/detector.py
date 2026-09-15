@@ -221,7 +221,7 @@ class AccessibilityDetector:
 
             return {
                 "isDemoMode": True,
-                "modelStatus": "DEMO MODE — AI MODEL NOT CONNECTED",
+                "modelStatus": "DEMO MODE",
                 "notice": "models/best.pt is not loaded. Predefined college demo dataset active.",
                 "detections": demo_detections,
                 "score": scoring["score"],
