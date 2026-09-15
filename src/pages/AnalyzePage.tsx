@@ -287,7 +287,7 @@ export const AnalyzePage: React.FC<AnalyzePageProps> = ({ onNavigate }) => {
             <div className="p-4 rounded-2xl bg-amber-50 border border-amber-300 text-amber-950 flex items-start gap-3 text-xs">
               <Info className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
               <div>
-                <strong className="block text-sm font-bold">DEMO MODE — AI MODEL NOT CONNECTED</strong>
+                <strong className="block text-sm font-bold">DEMO MODE</strong>
                 <p className="mt-0.5 opacity-90">
                   {analysisResult.notice ||
                     'The backend is presenting explainable inspection results using deterministic rule-based evaluation. Connect best.pt in ai-service/models/ for live YOLO model execution.'}
