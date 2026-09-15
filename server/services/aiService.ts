@@ -170,8 +170,8 @@ export async function analyzeAccessibilityImage(
 
   return {
     isDemoMode: true,
-    modelStatus: 'DEMO MODE — AI MODEL NOT CONNECTED',
-    notice: 'Python AI Service (port 5001) not reached. Operating in academic presentation DEMO MODE with predefined inspection data.',
+    modelStatus: 'DEMO MODE',
+    notice: 'Python AI Service MODE.',
     detections: demoDetections,
     score: scoring.score,
     category: scoring.category,
