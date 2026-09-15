@@ -31,7 +31,7 @@ def status():
         "status": "ready",
         "modelLoaded": detector.is_model_loaded,
         "modelPath": detector.model_path,
-        "mode": "REAL AI (YOLOv8)" if detector.is_model_loaded else "DEMO MODE — AI MODEL NOT CONNECTED"
+        "mode": "REAL AI (YOLOv8)" if detector.is_model_loaded else "DEMO MODE"
     })
 
 @app.route("/detect", methods=["POST"])
